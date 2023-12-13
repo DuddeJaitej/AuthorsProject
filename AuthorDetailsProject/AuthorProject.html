@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding New Form</title>
+    <style>
+        body{
+            background-color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 99%;
+            height: 80%;
+        }
+        form{
+            background-color: white;
+            padding:20px;
+
+        }
+        #addnew{
+            width: 20%;
+            height: 40px;
+            font-size: 20px;
+            background-color: blue;
+            color:white;
+            border:2px solid  black;
+            font-weight: bold;
+        }
+        #addnew:hover{
+            cursor: pointer;
+            background-color: lightcyan;
+            color:blue;
+            border:2px solid blue;
+            font-weight: bold;
+        }
+        #newOne{
+            background-color: white;
+            color:black;
+            font-size:30px;
+            margin-top:30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #sl{
+            width: 5%;
+            height:30px;
+            padding-left: 10px;
+            font-size:17px;
+        }
+        #title{
+            width: 23%;
+            height:30px;
+            padding-left: 10px;
+            font-size:17px;
+        }
+        #description{
+            padding-left: 10px;
+            font-size:18px;
+        }
+        #uploadq{
+            width:30%;
+            height:40px;
+        }
+        #submit{
+            width: 12%;
+            height: 35px;
+            font-size:16px;
+            background-color: blue;
+            color:white;
+            font-weight: bold;
+            border: 2px solid black;
+        }
+        #submit:hover{
+            background-color: lightcyan;
+            color:blue;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid blue;
+            font-size:18px;
+        }
+    </style>
+    <script type="text/javascript">
+        function addNew(){
+            var add = "Sl.No:<br> <input type='text' name='slno' id='sl'><br>Title:<br><input type='text' id='title' name='tile' placeholder='Enter tile'><br>Description:<br><textarea id='description' name='desc' rows='10' cols='80' placeholder='Enter description'></textarea><br>UploadFile:<br><input type='file' id='uploadq' value='UploadFilefromDirectory' name='file'><br><br><input id='submit' type='submit' value='Submit' name='submit'>";
+            document.getElementById("newOne").innerHTML= add;
+        }
+    </script>
+    <script>
+        function addnew1(){
+            var slno = document.getElementById("sl").value;
+            var title = document.getElementById("title").value;
+            var desc = document.getElementById("description").value;
+            var upload = document.getElementById("uploadq").value;
+
+            if(slno == null || slno.trim() == ""){
+                alert("Null Spaces Not Allowed");
+                return false;
+            }
+            if(isNaN(slno)){
+                alert("Characters not allowed");
+                return false;
+            }
+
+            if(title == null || title.trim() == ""){
+                alert("Null Spaces Not Allowed");
+                return false;
+            }
+            if(title.length < 3){
+                alert("Length more then 2");
+                return false;
+            }
+            if(!isNaN(title)){
+                alert("Number not allowed");
+                return false;
+            }
+
+            if(desc == null || desc.trim() == ""){
+                alert("Null Spaces Not Allowed");
+                return false;
+            }
+            if(desc.length < 10){
+                alert("Length more then 9");
+                return false;
+            }
+            if(!isNaN(desc)){
+                alert("Numbers not Allowed");
+                return false;
+            }
+
+            if(upload == null || upload.trim() == ""){
+                alert("You should upload a file");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+    <form action="AuthorProject1.php" onsubmit="return addnew1()"  method="post">
+        <input type="button" id="addnew" value="+ Add New One" onclick="addNew()">
+        <div id="newOne"></div>
+    </form>
+</body>
+</html>

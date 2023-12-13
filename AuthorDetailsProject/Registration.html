@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Conference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            text-align: left;
+            margin: 0.5% 24%;
+            padding: 20px;
+            background-color:blue;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            width: 40%;
+            font-size:20px;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover{
+            cursor: pointer;
+            border: 2px solid black;
+            background-color:lightgray;
+            font-weight: bold;
+            color:black;
+        }
+        #authorName,#email,#book_name,#pbdate,#phone{
+            width: 40%;
+
+        }
+        
+        label{
+            margin-right:19%;
+            color:#f4f4f4;
+            font-size:20px;
+            font-weight: bold;
+            margin-left:0px;
+        }
+        #an1{
+            margin-right:22%;
+        }
+        #e1{
+            margin-right:30%;
+        }
+        #bn1{
+            margin-right:24%;
+        }
+
+    </style>
+    <script>
+        function Validation(){
+            var an = document.getElementById("authorName").value;
+            var em = document.getElementById("email").value;
+            var emx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var bn = document.getElementById("book_name").value;
+            var pd = document.getElementById("pbdate").value;
+            var mn = document.getElementById("phone").value;
+
+            if(an == null || an.trim() == ""){
+                alert("Null spaces not valid");
+                return false;
+            }
+            if(!isNaN(an)){
+                alert("Numbers not allowed");
+                return false;
+            }
+            if(an.length < 3){
+                alert("Length more then 2");
+                return false;
+            }
+
+            if(em == null || em.trim() == ""){
+                alert("Null spaces not valid");
+                return false;
+            }
+            if(!emx.test(em)){
+                alert("Enter correct Email");
+                return false;
+            }
+
+            if(bn == null || bn.trim() == ""){
+                alert("Null spaces not valid");
+                return false;
+            }
+            if(!isNaN(bn)){
+                alert("Numbers not allowed");
+                return false;
+            }
+            if(bn.length < 3){
+                alert("Length more than 2");
+                return false;
+            }
+
+            if(pd == null || pd.trim() == ""){
+                alert("Null spaces not valid");
+                return false;
+            }
+
+            if(mn == null || mn.trim() == ""){
+                alert("Null spaces not valid");
+                return false;
+            }
+            if(isNaN(mn)){
+                alert("Characters not allowed");
+                return false;
+            }
+            if(mn.length != 10){
+                alert("Length should be 10");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>International Conference</h1>
+    </header>
+
+    <main>
+        <form action="Registration1.php" onsubmit="return Validation()" method="post">
+
+            <label id="an1" for="authorName">AuthorName:</label>
+            <input type="text" id="authorName" name="authorName" placeholder="Enter Author Name">
+
+            <label id="e1" for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email">
+            
+            <label id="bn1" for="book_name">BookName:</label>
+            <input type="text" id="book_name" name="bookname" placeholder="Enter BookName">
+
+            <label id="bpd1" for="book_publishing_date">PublishedDate:</label>
+            <input type="date" id="pbdate" name="published_date" placeholder="Enter Book_Publishing_Date">
+
+            <label id="p1" for="phone">MobileNumber:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter MobileNumber"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html
